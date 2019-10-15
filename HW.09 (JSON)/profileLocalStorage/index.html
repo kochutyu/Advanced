@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="flex">
+        <div id="signUpBlock">
+            <h1 class="center mb25">Please sign up</h1>
+            <form class="SUinput">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">First name</label>
+                    <input type="text" class="form-control firstNameSU" id="formGroupExampleInput" placeholder="First name">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Last name</label>
+                    <input type="text" class="form-control lastNameSU" id="formGroupExampleInput" placeholder="Last name">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Email</label>
+                    <input type="text" class="form-control emailSU checkCorekt emailControl" id="formGroupExampleInput" placeholder="Email">
+                    <span class="invalid">invalid email</span>
+                    <span class="invalidExist">This email already exist</span>
+                </div>
+                <div class="form-group mb25">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control passwordSU" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="button" class="btn btn-primary center width100" id="signUp">Sign Up</button>
+                <div class="mb25">
+                    <span class="inputFieldsNone">fill in all the input fields</span>
+                </div>
+                <span class="signIn">Sign in now</span>
+            </form>
+        </div>
+        <div id="signInBlock">
+            <h1 class="center mb25">Please sign in</h1>
+            <form>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Email</label>
+                    <input type="text" class="form-control emailLogin" id="formGroupExampleInput" placeholder="Email">
+                </div>
+                <div class="form-group mb25">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control passwordLogin" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="button" class="btn btn-primary center width100" id="signIn">Sign In</button>
+                <span class="invalisPassOrLogin mb25">please enter the correct password or login</span>
+                <span class="signUn">Sign up now</span>
+            </form>
+        </div>
+        <div id="blockProfile">
+            <div class="blockProfile">
+                <div class="logo"><img src="img/1.png" alt=""></div>
+                <span class="name">Yura Kochut</span>
+                <span class="emailProfile">Email</span>
+                <span>Designer && Web Developing</span>
+                <hr>
+            </div>
+            <button type="button" class="btn btn-success" id="goToSignUp">Sign Out</button>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

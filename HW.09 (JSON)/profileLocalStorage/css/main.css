@@ -1,0 +1,19 @@
+/* for desktop 960px*/
+@media screen and (max-width: 1140px){
+
+}
+
+/* for tablet  768px*/
+@media screen and (max-width: 959px){
+
+}
+
+/* for most mobile 480px*/
+@media screen and (max-width: 767px){
+
+}
+
+/* for the smallest mobile 320px*/
+@media screen and (max-width: 479px){
+
+}
