@@ -1,10 +1,10 @@
 // task 1
-console.log('HTML-color:', /^\#\d{6}$/.test('#000000'));
+console.log('HTML-color:', /^\#\d{6}$/.test('#000000'));  // true
 
 // task 2
 const promptFL = prompt('Write your first and last name')
 const replace = /( |^)[A-Za-z]/ig;
-console.log('replace Z:', promptFL.replace(replace, ' Z'));
+console.log('replace Z:', promptFL.replace(replace, ' Z')); 
 
 // task 3
 const promptPas = prompt('Write your passport data')
