@@ -1,0 +1,60 @@
+.input{
+    width: 200px;
+    height: 35px;
+    padding: 10px 10px;
+}
+.null,
+.form,
+.formF,
+.formS,
+.formN{
+    margin-left: 10px;
+    color: rgb(224, 220, 211);
+    text-align: center;
+    width: 40px;
+    height: 35px;
+    line-height: 35px;
+    background-color: rgb(182, 36, 36);
+}
+
+.input_Content{
+    width: 30%;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+}
+.slider{
+    width:600px;
+}
+
+.inputs{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin-left: 50px;
+}
+.inputs_block{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.inputs_block:last-child{
+    margin-bottom: 0;
+}
+
+.block{
+    display: flex;
+}
+.ok{
+    width: 600px;
+}
+
+.contact{
+    margin-top: 50px;
+}
