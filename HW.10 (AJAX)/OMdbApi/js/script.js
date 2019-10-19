@@ -4,19 +4,10 @@ const gsAll = sel => document.querySelector(sel);
 let arr = [];
 let saveObjs = [];
 
-let arr_id = [];
-let save_id = {};
+/* let arr_id = [];
+let save_id = {}; */
 
 let countSearch = 0;
-
-/* function deleteBlick() {
-    for(var i = 0; i < gsAll('.block').length; i++){
-        if (gsAll('.block')[i]==null) {
-            
-            gs('.section').removeChild(gsAll('.block')[i]);
-        }
-    }
-} */
 
 function search() {
     let fromSearch = gs('.inputSearch').value;
@@ -103,14 +94,10 @@ function createBlockForMovie(arr) {
         gs('.section').appendChild(block);
     }
 }
-/* function createBlockForMovieInfo(arr) {
-    for (let i = 0; i < save_id.length; i++) {
-        console.log(i);
-    }
-} */
 
 function moreDetails(count) {
-    let fromSearch = saveObjs[count].imdbID;
+    gs('.img_modal').style.backgroundImage = `url(${saveObjs[count].Poster})`;
+    /*  let fromSearch = saveObjs[count].imdbID;
     const API_GET_INFO = `http://www.omdbapi.com/?i=${fromSearch}&apikey=2dd0470d`;
     const xhr_id = new XMLHttpRequest();
     xhr_id.open('GET', API_GET_INFO, true);
@@ -127,7 +114,6 @@ function moreDetails(count) {
             save_id = data_id;
             console.log(save_id);
 
-            gs('.img_modal').style.backgroundImage = `url(${saveObjs[count].Poster})`;
             gs('.forRated_modal').textContent = `${save_id.Rated}, ${save_id.Genre}`;
             gs('.forWriter').textContent = `${save_id.Writer}`;
             gs('.forDirector').textContent = `${save_id.Director}`;
@@ -143,10 +129,6 @@ function moreDetails(count) {
 
         }
     }
-    xhr_id.send();
+    xhr_id.send(); */
 
-}
-
-function addInfo() {
-    console.log('lol');
 }
