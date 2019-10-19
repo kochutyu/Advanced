@@ -10,45 +10,40 @@ let save_id = {}; */
 let countSearch = 0;
 
 function search() {
+
     let fromSearch = gs('.inputSearch').value;
-
     const API_MOVIE = `http://www.omdbapi.com/?s=${fromSearch}&apikey=2dd0470d`;
-
     const xhr = new XMLHttpRequest();
+
+    // delete outdated information
+    arr.forEach(index => {
+        arr.splice(index, 1)
+    });
+    console.log('remove arr', arr);
+
     xhr.open('GET', API_MOVIE, true);
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
 
-            // delete outdated information
-            arr.forEach(index => {
-                arr.splice(index, 1)
-            });
-            saveObjs.forEach(index => {
-                saveObjs.splice(index, 1)
-            });
-
+            // push obj
             let data = JSON.parse(xhr.responseText);
             arr.push(data);
 
-            // all movie
-            let searchAll = arr[0].Search;
+            // get movie
+            let searchAll = [...arr[0].Search];
             saveObjs = [...searchAll];
 
-
-            // create blocks for movie
+            // create block for movie
             createBlockForMovie(searchAll);
-            console.log(searchAll);
-
 
         }
     }
-
     xhr.send();
-    // xhr_id.send();
     gs('.inputSearch').value = '';
 }
 
 function createBlockForMovie(arr) {
+    gs('.section').innerHTML = '';
     for (let i = 0; i < arr.length; i++) {
         let block = document.createElement('div');
         block.className = 'block';
@@ -96,39 +91,26 @@ function createBlockForMovie(arr) {
 }
 
 function moreDetails(count) {
-    gs('.img_modal').style.backgroundImage = `url(${saveObjs[count].Poster})`;
-    /*  let fromSearch = saveObjs[count].imdbID;
+    let fromSearch = saveObjs[count].imdbID;
     const API_GET_INFO = `http://www.omdbapi.com/?i=${fromSearch}&apikey=2dd0470d`;
     const xhr_id = new XMLHttpRequest();
     xhr_id.open('GET', API_GET_INFO, true);
     xhr_id.onreadystatechange = () => {
         if (xhr_id.readyState === 4 && xhr_id.status === 200) {
-            // delete outdated information
-            arr_id.forEach(index => {
-                arr_id.splice(index, 1)
-            });
-            console.log(arr_id);
-
-
             let data_id = JSON.parse(xhr_id.responseText);
-            save_id = data_id;
-            console.log(save_id);
-
-            gs('.forRated_modal').textContent = `${save_id.Rated}, ${save_id.Genre}`;
-            gs('.forWriter').textContent = `${save_id.Writer}`;
-            gs('.forDirector').textContent = `${save_id.Director}`;
-            for (let i = 0; i < save_id.Ratings.length; i++) {
-                if (i==save_id.Ratings.length-1) {
-                    gs('.forRatings').textContent += `${save_id.Ratings[i].Source} - ${save_id.Ratings[i].Value} `;
-                }else{
-                    gs('.forRatings').textContent += `${save_id.Ratings[i].Source} - ${save_id.Ratings[i].Value} \n`;
-                }
-
+            console.log(data_id);
+            for (let i = 0; i < data_id.Ratings.length; i++) {
+                gs('.forRatings').innerHTML = ``
             }
-            console.log(save_id.Ratings);
-
+            gs('.img_modal').style.backgroundImage = `url(${data_id.Poster})`;
+            gs('.forRated_modal').textContent = `${data_id.Rated}, ${data_id.Genre}`;
+            gs('.forWriter').innerHTML = `</br><span>${data_id.Writer}</span>`
+            gs('.forDirector').innerHTML = `</br><span>${data_id.Director}</span>`
+            for (let i = 0; i < data_id.Ratings.length; i++) {
+                gs('.forRatings').innerHTML += `</br><span>${data_id.Ratings[i].Source} - ${data_id.Ratings[i].Value}</span>`
+            }
         }
     }
-    xhr_id.send(); */
+    xhr_id.send();
 
 }
