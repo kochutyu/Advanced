@@ -4,11 +4,9 @@ const gsAll = sel => document.querySelector(sel);
 let arr = [];
 let saveObjs = [];
 
-/* let arr_id = [];
-let save_id = {}; */
-
 let countSearch = 0;
 
+//search monie
 function search() {
 
     let fromSearch = gs('.inputSearch').value;
@@ -42,6 +40,7 @@ function search() {
     gs('.inputSearch').value = '';
 }
 
+// create block
 function createBlockForMovie(arr) {
     gs('.section').innerHTML = '';
     for (let i = 0; i < arr.length; i++) {
@@ -90,6 +89,7 @@ function createBlockForMovie(arr) {
     }
 }
 
+// get info about movie
 function moreDetails(count) {
     let fromSearch = saveObjs[count].imdbID;
     const API_GET_INFO = `http://www.omdbapi.com/?i=${fromSearch}&apikey=2dd0470d`;
