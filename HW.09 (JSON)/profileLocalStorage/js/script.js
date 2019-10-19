@@ -24,7 +24,12 @@ function clearSign() {
     $('.invalidExist').css({
         display: 'none'
     });
-
+    $('.invalisPassOrLogin ').css({
+        display: 'none'
+    });
+    $('.inputFieldsNone ').css({
+        display: 'none'
+    });
 }
 
 
@@ -75,12 +80,22 @@ $('.signUn').click(() => {
     clearSign();
 })
 
+// Exit from Profile
+$('#goToSignUp').click(() => {
+    $('#blockProfile').css({
+        display: 'none'
+    });
+    $('#signUpBlock').css({
+        display: 'block'
+    });
+    clearSign();
+})
+
 let arrUsers = [];
 let localUsers = [];
 
-
+// onlick signUp
 $('#signUp').click(() => {
-
     if (checkValue()) {
         let count = 0;
         localUsers.forEach(index => {
@@ -123,9 +138,22 @@ $('#signUp').click(() => {
 
 
 
-// sign in
+// onclick signIn
 $('#signIn').click(() => {
-    // alert('signIn');
+    if (localUsers.length>0) {
+        console.log('yes');
+        login();
+        
+    }else{
+        localUsers = JSON.parse(localStorage.getItem('AllUsers'));
+        console.log('no');
+        console.log(localUsers);
+        login();
+    }
+});
+
+// login
+function login() {
     localUsers.forEach(function (index) {
         let getKeyAndValues = Object.assign(index);
         let firstNameLogin = getKeyAndValues.firstName;
@@ -150,14 +178,4 @@ $('#signIn').click(() => {
             });
         }
     })
-});
-
-
-$('#goToSignUp').click(() => {
-    $('#blockProfile').css({
-        display: 'none'
-    });
-    $('#signUpBlock').css({
-        display: 'block'
-    });
-})
+}
