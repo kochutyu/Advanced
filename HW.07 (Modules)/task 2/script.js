@@ -51,6 +51,6 @@ let People = (function () {
     return {
         init: init
     }
-}())
+}());
 
 People.init();
