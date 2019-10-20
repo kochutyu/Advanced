@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop_style {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: silver;
+    outline: 1px solid slategray;
+}
+
+/* .balance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
+.balance_block {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.name_balance {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.input_balance {
+    height: 20px;
+    padding: 5px 10px;
+}
+
+.mb25 {
+    margin-bottom: 25px;
+}
+
+.mb10 {
+    margin-bottom: 3px;
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+}
+
+.radio input {
+    margin-right: 2px;
+}
+
+.radio label {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.textarea_for_buy {
+    width: 190px;
+    height: 100px;
+    background-color: rgb(174, 181, 187);
+    border: 1px solid slategray;
+    padding: 5px 10px;
+}
+.btn_style{
+    height: 35px;
+    width: 100px;
+}
+
+.basket{
+    padding: 5px 10px;
+}
