@@ -31,7 +31,6 @@ let People = (function () {
                 init();
             };
         };
-
     }
 
     function render() {
