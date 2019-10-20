@@ -31,7 +31,6 @@ let People = (function () {
                 init();
             };
         };
-
     }
 
     function render() {
@@ -52,6 +51,6 @@ let People = (function () {
     return {
         init: init
     }
-}())
+}());
 
 People.init();
