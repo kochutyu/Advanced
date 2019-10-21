@@ -75,6 +75,7 @@
     background-color: rgb(174, 181, 187);
     border: 1px solid slategray;
     padding: 5px 10px;
+    overflow: auto;
 }
 .btn_style{
     height: 35px;

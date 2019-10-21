@@ -58,7 +58,6 @@ let shop = (function () {
 
     function count() {
         if (gs('.enter_count_product').value != '' && gs('.enter_count_product').value > 0) return gs('.enter_count_product').value;
-        else alert('Value is invalid');
     }
 
     gs('.add').onclick = function () {
@@ -68,26 +67,17 @@ let shop = (function () {
             // console.log(amount);
             if (selected == 'beer') {
                 amountBeer += +countProduct;
-                console.log(amountBeer);
                 gs('.forBeerID').textContent = `${selected}: ${amountBeer} шт.`
             } else if (selected == 'vine') {
                 amountVine += +countProduct;
-                console.log(amountVine);
                 gs('.forVineID').textContent = `${selected}: ${amountVine} шт.`
             } else if (selected == 'pepsi') {
                 amountPepsi += +countProduct;
-                console.log(amountPepsi);
                 gs('.forPepsiID').textContent = `${selected}: ${amountPepsi} шт.`
             }
-            // gs('.enter_count_product').value='';
+            gs('.buy').disabled = false;
 
         }
-    }
-    
-    return {
-        amountBeer: amountBeer,
-        amountVine: amountVine,
-        amountPepsi: amountPepsi
     }
 }());
 
