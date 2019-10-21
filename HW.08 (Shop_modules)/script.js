@@ -67,19 +67,17 @@ let shop = (function () {
             // console.log(amount);
             if (selected == 'beer') {
                 amountBeer += +countProduct;
-                gs('.forBeerID').textContent = `${selected}: ${amountBeer} шт.`
+                gs('.textarea_for_buy').innerHTML += `<span class="forBeerID">${selected}: ${amountBeer} шт.</span></br>`;
             } else if (selected == 'vine') {
                 amountVine += +countProduct;
-                gs('.forVineID').textContent = `${selected}: ${amountVine} шт.`
+                gs('.textarea_for_buy').innerHTML += `<span class="forBeerID">${selected}: ${amountVine} шт.</span></br>`;
             } else if (selected == 'pepsi') {
                 amountPepsi += +countProduct;
-                gs('.forPepsiID').textContent = `${selected}: ${amountPepsi} шт.`
+                gs('.textarea_for_buy').innerHTML += `<span class="forBeerID">${selected}: ${amountPepsi} шт.</span></br>`;
             }
             gs('.buy').disabled = false;
-
+            console.log('amountBeer',amountBeer, ' amountVine', amountVine, ' amountPepsi', amountPepsi);
+            
         }
     }
 }());
-
-
-console.log(shop.amountBeer);
