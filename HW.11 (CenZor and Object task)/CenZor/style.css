@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+    border-radius: 7px;
+}
+
+.container {
+    z-index: 1;
+    position: absolute;
+    width: 90%;
+    height: 90vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cenzorBlock {
+    position: absolute;
+    width: 600px;
+    height: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.badWordsSpan {
+    min-width: 30px;
+    line-height: 30px;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.badWordsBlock {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 505px;
+    min-height: 30px;
+    padding-left: 10px;
+    font-size: 19px;
+    font-weight: bold;
+    color: firebrick;
+    /* background-color: rgb(153, 145, 145); */
+}
+
+
+.wordIn {
+    width: 400px;
+    height: 35px;
+    font-size: 16px;
+    padding: 0;
+    padding-left: 10px;
+    margin: 0;
+    border: 1px solid slategrey;
+    outline: none;
+    box-shadow: none;
+    margin-top: 10px;
+}
+
+.wordIn:focus {
+    border: 1px solid rgb(2, 131, 190);    
+    box-shadow: 0 0 5px 1px rgb(2, 131, 190);
+}
+
+
+.add,
+.reset{
+    border: 1px solid slategrey;
+    outline: none;
+    box-shadow: none;
+    margin-top: 10px;
+}
+
+.add:hover,
+.reset:hover{
+    cursor: pointer;
+}
+
+.add{
+    width: 80px;
+    background-color: darkorange;
+}
+
+.add:active{
+    color: rgb(255, 255, 255);
+    background-color: rgb(182, 101, 2);
+    box-shadow: 0 0 10px 1px rgb(182, 101, 2);
+}
+
+.reset{
+    width: 80px;
+    color: aliceblue;
+    background-color: firebrick;
+}
+.reset:active{
+    background-color: rgb(119, 22, 22);
+    box-shadow: 0 0 10px 1px rgb(119, 22, 22);
+}
+
+.textarea{
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 20px;
+    resize: none;
+}
+.textarea:focus{
+    border: 1px solid rgb(2, 131, 190);
+    box-shadow: 0 0 5px 1px rgb(2, 131, 190);
+}
+.cenzor{
+    width: 100%;
+    height: 35px;
+    margin-top: 20px;
+    border: 1px solid slategrey;
+    outline: none;
+    box-shadow: none;
+    background-color: rgb(8, 114, 8);
+    color: #fff;
+}
+
+.cenzor:hover{
+    cursor: pointer;
+}
+
+.cenzor:active{
+    background-color: rgb(12, 165, 12);
+    box-shadow: 0 0 10px 1px rgb(12, 165, 12);
+
+}
