@@ -51,6 +51,7 @@ let shop = (function () {
     let saveVine = 0;
     let savePepsi = 0;
     let sum = 0;
+    let res = 0;
 
     function radio() {
         let radios = document.querySelectorAll('.selChange');
@@ -81,18 +82,22 @@ let shop = (function () {
         saveVine += amountVine;
         savePepsi += amountPepsi;
 
-        gs('.basket').innerHTML = `<span>beer: ${saveBeer} шт.</span></br><span>vine: ${saveVine} шт.</span></br><span>pepsi: ${savePepsi} шт.</span></br><span>Всього: ${sum} гривень</span></br>`;
+        gs('.basket').innerHTML = `<span>beer: ${saveBeer} шт.</span></br><span>vine: ${saveVine} шт.</span></br><span>pepsi: ${savePepsi} шт.</span></br><span>Всього: ${res} гривень</span></br>`;
     }
 
     function result() {
 
+        debugger
         sum += shopResources.products.beer.price * amountBeer + shopResources.products.vine.price * amountVine + shopResources.products.pepsi.price * amountPepsi;
+        res += sum;
+        
         if (shopResources.balance.money > 0 && shopResources.balance.money >= sum) {
             if (shopResources.products.beer.countProduct >= amountBeer && shopResources.products.vine.countProduct >= amountVine && shopResources.products.pepsi.countProduct >= amountPepsi) {
                 addToBasket();
             } else alert('Не хватає товару на складі, будь ласка перевірте ваші покупки!');
         } else alert(`У Вас не хватає грошей на покупку: на балансі - ${shopResources.balance.money}, ціна покупки - ${sum}`);
-        sum = 0;
+        
+        sum = 0;        
         amountBeer = 0;
         amountVine = 0;
         amountPepsi = 0;
@@ -105,16 +110,16 @@ let shop = (function () {
         let countProduct = count();
         if (gs('.enter_count_product').value != '' && gs('.enter_count_product').value > 0) {
             
-            if (selected == 'beer') {
-                    amountBeer += +countProduct;
-                    gs('.textarea_for_buy').innerHTML = `<span class="forBeerID">${selected}: ${amountBeer} шт.</span></br>`;
-                } else if (selected == 'vine') {
-                    amountVine += +countProduct;
-                    gs('.textarea_for_buy').innerHTML = `<span class="forBeerID">${selected}: ${amountVine} шт.</span></br>`;
-                } else if (selected == 'pepsi') {
-                    amountPepsi += +countProduct;
-                    gs('.textarea_for_buy').innerHTML = `<span class="forBeerID">${selected}: ${amountPepsi} шт.</span></br>`;
-                }
+
+                    if (selected == 'beer') amountBeer += +countProduct;
+                    else if (selected == 'vine') amountVine += +countProduct;
+                    else if (selected == 'pepsi') amountPepsi += +countProduct;
+                    
+                    gs('.textarea_for_buy').innerHTML = '';
+                    gs('.textarea_for_buy').innerHTML += `<span class="forBeerID">beer: ${amountBeer} шт.</span></br>`;
+                    gs('.textarea_for_buy').innerHTML += `<span class="forBeerID">vine: ${amountVine} шт.</span></br>`;
+                    gs('.textarea_for_buy').innerHTML += `<span class="forBeerID">pepsi: ${amountPepsi} шт.</span></br>`;
+
                 gs('.buy').disabled = false;
                 gs('.enter_count_product').value = '';
 
