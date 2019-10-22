@@ -68,35 +68,36 @@ let shop = (function () {
         if (gs('.enter_count_product').value != '' && gs('.enter_count_product').value > 0) return gs('.enter_count_product').value;
     }
 
+    function addToBasket() {
+        shopResources.balance.money -= shopResources.products.beer.price * amountBeer;
+        shopResources.balance.money -= shopResources.products.vine.price * amountVine;
+        shopResources.balance.money -= shopResources.products.pepsi.price * amountPepsi;
+
+        shopResources.products.beer.countProduct -= amountBeer;
+        shopResources.products.vine.countProduct -= amountVine;
+        shopResources.products.pepsi.countProduct -= amountPepsi;
+
+        saveBeer += amountBeer;
+        saveVine += amountVine;
+        savePepsi += amountPepsi;
+
+        gs('.basket').innerHTML = `<span>beer: ${saveBeer} шт.</span></br><span>vine: ${saveVine} шт.</span></br><span>pepsi: ${savePepsi} шт.</span></br><span>Всього: ${sum} гривень</span></br>`;
+    }
+
     function result() {
-        
+
         sum += shopResources.products.beer.price * amountBeer + shopResources.products.vine.price * amountVine + shopResources.products.pepsi.price * amountPepsi;
-        if (shopResources.balance.money>0 && shopResources.balance.money>=sum ) {
-            if (shopResources.products.beer.countProduct>amountBeer||shopResources.products.vine.countProduct>amountVine||shopResources.products.pepsi.countProduct>amountPepsi) {
-                shopResources.balance.money -= shopResources.products.beer.price * amountBeer;
-                shopResources.balance.money -= shopResources.products.vine.price * amountVine;
-                shopResources.balance.money -= shopResources.products.pepsi.price * amountPepsi;
-                
-                shopResources.products.beer.countProduct -= amountBeer;
-                shopResources.products.vine.countProduct -= amountVine;
-                shopResources.products.pepsi.countProduct -= amountPepsi;
-    
-                saveBeer+=amountBeer;
-                saveVine+=amountVine;
-                savePepsi+=amountPepsi;
-    
-                gs('.basket').innerHTML = `<span>beer: ${saveBeer} шт.</span></br><span>vine: ${saveVine} шт.</span></br><span>pepsi: ${savePepsi} шт.</span></br><span>Всього: ${sum} гривень</span></br>`
-            } else{
-                alert('Не хватає товару на складі, будь ласка перевірте ваші покупки!');
-            }
-        }else{
-            alert(`У Вас не хватає грошей на покупку: на балансі - ${shopResources.balance.money}, ціна покупки - ${sum}`);
-        }
-        
+        if (shopResources.balance.money > 0 && shopResources.balance.money >= sum) {
+            if (shopResources.products.beer.countProduct >= amountBeer) addToBasket();
+            else if (shopResources.products.vine.countProduct >= amountVine) addToBasket();
+            else if (shopResources.products.pepsi.countProduct >= amountPepsi) addToBasket();
+            else alert('Не хватає товару на складі, будь ласка перевірте ваші покупки!');
+        } else alert(`У Вас не хватає грошей на покупку: на балансі - ${shopResources.balance.money}, ціна покупки - ${sum}`);
+
         amountBeer = 0;
         amountVine = 0;
         amountPepsi = 0;
-    
+
         shopResources.init();
     }
 
