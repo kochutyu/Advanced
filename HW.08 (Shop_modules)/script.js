@@ -86,8 +86,6 @@ let shop = (function () {
     }
 
     function result() {
-
-        debugger
         sum += shopResources.products.beer.price * amountBeer + shopResources.products.vine.price * amountVine + shopResources.products.pepsi.price * amountPepsi;
         res += sum;
         
@@ -110,7 +108,6 @@ let shop = (function () {
         let countProduct = count();
         if (gs('.enter_count_product').value != '' && gs('.enter_count_product').value > 0) {
             
-
                     if (selected == 'beer') amountBeer += +countProduct;
                     else if (selected == 'vine') amountVine += +countProduct;
                     else if (selected == 'pepsi') amountPepsi += +countProduct;
