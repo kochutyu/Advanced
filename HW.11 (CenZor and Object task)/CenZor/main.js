@@ -1,26 +1,25 @@
-let gs = sel => document.querySelector(sel);
-let badWords = ['java', 'lol'];
-let updateUser = (function () {
-    let add = gs('.add');
-    let reset = gs('.reset');
+var gs = function (sel) { return document.querySelector(sel); };
+var badWords = ['java', 'lol'];
+var updateUser = (function () {
+    var add = gs('.add');
+    var reset = gs('.reset');
     function render() {
         gs('.badWordsBlock').textContent = badWords.join(', ');
     }
     add.onclick = function () {
-        let value = gs('.wordIn').value;
+        var value = gs('.wordIn').value;
         if (value != '') {
             badWords.push(value);
-            console.log(badWords);
         }
-        gs('.wordIn').value = '';
-        render();
     };
     reset.onclick = function () {
-        badWords.forEach(index=>{
-            badWords.splice(0, index);
-        })
+        badWords.forEach(function (v, i) {
+            badWords.splice(i, 1);
+        });
+        console.log(badWords);
         gs('.badWordsBlock').textContent = '';
     };
+    // console.log(typeof function():void{});
     return {
         render: render
     };

@@ -1,8 +1,9 @@
 let gs = sel => document.querySelector(sel);
 
+
 let badWords: Array<string> = ['java', 'lol'];
 
-let updateUser = (function (): object {
+let updateUser = (function (): any {
     let add = gs('.add');
     let reset = gs('.reset');
 
@@ -11,20 +12,24 @@ let updateUser = (function (): object {
     }
 
     add.onclick = function ():void{
-        let value: string = gs('.wordIn').value;
+        /* let value: string = gs('.wordIn').value;
         if (value != '') {
             badWords.push(value);
             console.log(badWords);
-        }
+        } */
+        console.log('lol');
+        
         // render();
     };
+    console.log('lol');
+    
     reset.onclick = function ():void{
-        badWords.forEach(function (i:number):void {
-            badWords.splice(i, 0);
+        badWords.forEach(function (v:string, i:number):void {
+            badWords.splice(+v, 1);
+            gs('.badWordsBlock').textContent = '';
         });
-        gs('.badWordsBlock').textContent = '';
     };
-
+    
     // console.log(typeof function():void{});
     
     return {
