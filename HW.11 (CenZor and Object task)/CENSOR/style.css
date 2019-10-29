@@ -1,54 +1,54 @@
 * {
     box-sizing: border-box;
     border-radius: 7px;
-}
-
-.container {
+  }
+  
+  .container {
     z-index: 1;
     position: absolute;
     width: 90%;
     height: 90vh;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.flex {
+  }
+  
+  .flex {
     display: flex;
     justify-content: space-between;
-}
-
-.cenzorBlock {
+  }
+  
+  .cenzorBlock {
     position: absolute;
     width: 600px;
     height: 250px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.badWordsSpan {
+  }
+  
+  .badWordsSpan {
     min-width: 30px;
     line-height: 30px;
     font-size: 19px;
     font-weight: bold;
-}
-
-.badWordsBlock {
+  }
+  
+  .badWordsBlock {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    width: 505px;
+    width: 500px;
     min-height: 30px;
     padding-left: 10px;
     font-size: 19px;
     font-weight: bold;
     color: firebrick;
     /* background-color: rgb(153, 145, 145); */
-}
-
-
-.wordIn {
+  }
+  
+  
+  .wordIn {
     width: 400px;
     height: 35px;
     font-size: 16px;
@@ -59,60 +59,60 @@
     outline: none;
     box-shadow: none;
     margin-top: 10px;
-}
-
-.wordIn:focus {
+  }
+  
+  .wordIn:focus {
     border: 1px solid rgb(2, 131, 190);    
     box-shadow: 0 0 5px 1px rgb(2, 131, 190);
-}
-
-
-.add,
-.reset{
+  }
+  
+  
+  .add,
+  .reset{
     border: 1px solid slategrey;
     outline: none;
     box-shadow: none;
     margin-top: 10px;
-}
-
-.add:hover,
-.reset:hover{
+  }
+  
+  .add:hover,
+  .reset:hover{
     cursor: pointer;
-}
-
-.add{
+  }
+  
+  .add{
     width: 80px;
     background-color: darkorange;
-}
-
-.add:active{
+  }
+  
+  .add:active{
     color: rgb(255, 255, 255);
     background-color: rgb(182, 101, 2);
     box-shadow: 0 0 10px 1px rgb(182, 101, 2);
-}
-
-.reset{
+  }
+  
+  .reset{
     width: 80px;
     color: aliceblue;
     background-color: firebrick;
-}
-.reset:active{
+  }
+  .reset:active{
     background-color: rgb(119, 22, 22);
     box-shadow: 0 0 10px 1px rgb(119, 22, 22);
-}
-
-.textarea{
+  }
+  
+  .textarea{
     padding: 10px;
     width: 100%;
     font-size: 16px;
     margin-top: 20px;
     resize: none;
-}
-.textarea:focus{
+  }
+  .textarea:focus{
     border: 1px solid rgb(2, 131, 190);
     box-shadow: 0 0 5px 1px rgb(2, 131, 190);
-}
-.cenzor{
+  }
+  .cenzor{
     width: 100%;
     height: 35px;
     margin-top: 20px;
@@ -121,14 +121,14 @@
     box-shadow: none;
     background-color: rgb(8, 114, 8);
     color: #fff;
-}
-
-.cenzor:hover{
+  }
+  
+  .cenzor:hover{
     cursor: pointer;
-}
-
-.cenzor:active{
+  }
+  
+  .cenzor:active{
     background-color: rgb(12, 165, 12);
     box-shadow: 0 0 10px 1px rgb(12, 165, 12);
-
-}
+  
+  }

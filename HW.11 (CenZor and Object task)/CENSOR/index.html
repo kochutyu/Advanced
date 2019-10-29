@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CenZor</title>
+    <title>Censor</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="container">
         <div class="cenzorBlock">
             <div class="flex">
                 <div class="badWordsSpan">Bad words:</div>
-                <div class="badWordsBlock">java, lol</div>
+                <div class="badWordsBlock"></div>
             </div>
             <div class="flex">
                 <input type="text" placeholder="word here..." class="wordIn">
-                <button class="add">Add</button>
-                <button class="reset">Reset</button>
+                <button class="add" onclick="addBadWords()">Add</button>
+                <button class="reset" onclick="reset()">Reset</button>
             </div>
             <div class="flex">
-                <textarea name="" id="" cols="30" rows="5" placeholder="text here..." class="textarea"></textarea>
+                <textarea name="" id="" cols="30" rows="5" placeholder="text here..." class="textarea" [(ngModel)]="textArea" name="textArea"></textarea>
             </div>
             <div class="flex">
-                <button class="cenzor">Cenzor</button>
+                <button class="cenzor" onclick="censor()">Cenzor</button>
             </div>
         </div>
-    </div>
-    <script src="main.js"></script>
+      </div>
+      <script src="main.js"></script>
 </body>
-
 </html>
