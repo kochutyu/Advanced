@@ -1,0 +1,12 @@
+h1{
+    color: red;
+}
+.error{
+    border: 1px solid red;
+}
+.big{
+    width: 200px;
+}
+.success{
+    border: 1px solid green;
+}

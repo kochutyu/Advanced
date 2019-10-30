@@ -1,0 +1,46 @@
+<div class="containers">
+  <form class="SignUp">
+    <div class="form-group">
+      <label for="userLogin">Login:</label>
+      <input [(ngModel)]="userLogin" name="userLogin" type="text" class="form-control" id="userLogin">
+    </div>
+    <div class="form-group">
+      <label for="userPassword">Password:</label>
+      <input [(ngModel)]="userPassword" name="userPassword" type="password" class="form-control" id="userPassword">
+    </div>
+    <div class="form-group">
+      <label for="userEmail">Email address:</label>
+      <input [(ngModel)]="userEmail" name="userEmail" type="email" class="form-control" id="userEmail">
+    </div>
+    <button (click)="addUser()" type="button" class="btn btnWidth" [ngClass]="{
+      'btn-primary': editStatus,
+      'btn-success': !editStatus
+    }">{{addSave}}</button>
+  </form>
+  <table class="table seeUsers">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Login</th>
+        <th scope="col">Password</th>
+        <th scope="col">Email</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of arrUsers; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{user.login}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <button (click)="editUser(user)" type="button" class="btn btn-warning" [disabled]='editStatus'>edit</button>
+        </td>
+        <td>
+          <button (click)="deleteUser(user)" type="button" class="btn btn-danger" [disabled]='editStatus'>delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

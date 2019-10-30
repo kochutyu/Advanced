@@ -1,0 +1,16 @@
+.containers{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.SignUp{
+    width: 500px;
+    margin-right: 50px;
+}
+.seeUsers{
+    width: 700px;
+    margin-top: 24px;
+}
+.btnWidth{
+    width: 100%;
+}
