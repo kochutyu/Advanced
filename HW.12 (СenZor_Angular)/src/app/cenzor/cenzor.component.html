@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="cenzorBlock">
+        <div class="flex">
+            <div class="badWordsSpan">Bad words:</div>
+            <div class="badWordsBlock">{{newWords}}</div>
+        </div>
+        <div class="flex">
+            <input type="text" placeholder="word here..." class="wordIn" [(ngModel)]="textSearch">
+            <button class="add" (click)="addBadWords()">Add</button>
+            <button class="reset" (click)="reset()">Reset</button>
+        </div>
+        <div class="flex">
+            <textarea name="" id="" cols="30" rows="5" placeholder="text here..." class="textarea" name="textArea" [(ngModel)]="textArea"></textarea>
+        </div>
+        <div class="flex">
+            <button class="cenzor" (click)="censor()">Cenzor</button>
+        </div>
+    </div>
+  </div>
