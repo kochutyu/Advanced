@@ -1,5 +1,5 @@
 .post{
-    width: 900px;
+    max-width: 900px;
     margin: 20px auto;
     border: 1px dashed black;
     padding: 20px 20px;
@@ -9,7 +9,17 @@
         font-weight: bold;
         color: rgb(119, 114, 114);
     }
+    .postedBy{
+      color: darkorange;
+    }
     p{
-        font-size: 16px;
+      font-size: 18px;
+      font-family: Cambria;
+      margin-bottom: 0;
+      text-align: justify;
+    }
+    .bg-content{
+      background-color: khaki;
+      padding-left: 105px;
     }
 }

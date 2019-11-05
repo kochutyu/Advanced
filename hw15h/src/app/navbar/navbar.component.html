@@ -1,16 +1,84 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Angular Blog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        
+
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <button type="button" class="btn btn-success" [ngStyle]="{ 'margin-right': '10px'}">Sign In</button>
-        <button type="button" class="btn btn-primary">Sign Up</button>
+        <button type="button"
+                class="btn btn-success"
+                [ngStyle]="{ 'margin-right': '10px'}"
+                data-toggle="modal"
+                data-target="#modal-sign-in"
+        >Sign In</button>
+        <button type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#modal-sign-up">Sign Up</button>
       </form>
     </div>
-  </nav>
+  <div class="modal-sign-in">
+    <div class="modal fade" id="modal-sign-in" tabindex="-1" role="dialog" aria-labelledby="modal-sign-inTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-sign-inTitle">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <h6>Email:</h6>
+              <input type="text" class="form-control" [(ngModel)]="emailSignIn">
+            </div>
+            <div class="mt-25">
+              <h6>Password:</h6>
+              <input type="text" class="form-control" [(ngModel)]="passwordSignIn">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" (click)="signIn()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-sign-up">
+    <div class="modal fade" id="modal-sign-up" tabindex="-1" role="dialog" aria-labelledby="modal-sign-upTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-sign-upTitle">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <h6>Username:</h6>
+              <input type="text" class="form-control">
+            </div>
+            <div class="mt-25">
+              <h6>Email:</h6>
+              <input type="text" class="form-control">
+            </div>
+            <div class="mt-25">
+              <h6>Password:</h6>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="signUp()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -12,6 +12,6 @@ export interface IPost {
 })
 export class AppComponent {
   posts: IPost[] = [
-    {id: 4, title: 'Angular', posted: 'Admin', content: 'lol'}
+    {id: 4, title: 'Angular', posted: 'Admin', content: 'Lorem ipsum dolor sit amet.'}
   ];
 }
