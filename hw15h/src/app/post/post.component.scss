@@ -1,0 +1,15 @@
+.post{
+    width: 900px;
+    margin: 20px auto;
+    border: 1px dashed black;
+    padding: 20px 20px;
+    .posted{
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: rgb(119, 114, 114);
+    }
+    p{
+        font-size: 16px;
+    }
+}
