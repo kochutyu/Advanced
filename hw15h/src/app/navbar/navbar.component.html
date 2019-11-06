@@ -8,17 +8,33 @@
       <ul class="navbar-nav mr-auto">
 
       </ul>
-      <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-lg-0" *ngIf="!CheckSignIn">
+      <button type="button"
+              class="btn btn-success"
+              [ngStyle]="{ 'margin-right': '10px'}"
+              data-toggle="modal"
+              data-target="#modal-sign-in"
+      >Sign In</button>
+      <button type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#modal-sign-up">Sign Up</button>
+    </form>
+      <form class="form-inline my-2 my-lg-0" *ngIf="CheckSignIn">
         <button type="button"
-                class="btn btn-success"
+                class="btn btn-outline-success"
                 [ngStyle]="{ 'margin-right': '10px'}"
                 data-toggle="modal"
-                data-target="#modal-sign-in"
-        >Sign In</button>
+                data-target="#modal-add-post"
+        >Add post</button>
+        <div class="userName" [ngStyle]="{ 'margin-right': '10px'}">
+          <span><span class="userNameSpan">Username: </span>{{thisUser.username}}</span>
+        </div>
         <button type="button"
-                class="btn btn-primary"
+                class="btn btn-outline-danger"
                 data-toggle="modal"
-                data-target="#modal-sign-up">Sign Up</button>
+                (click)="signOut()"
+        >Sign Out</button>
       </form>
     </div>
   <div class="modal-sign-in">
@@ -34,15 +50,21 @@
           <div class="modal-body">
             <div>
               <h6>Email:</h6>
-              <input type="text" class="form-control" [(ngModel)]="emailSignIn">
+              <input type="text" class="form-control" [(ngModel)]="emailSign">
             </div>
             <div class="mt-25">
               <h6>Password:</h6>
-              <input type="text" class="form-control" [(ngModel)]="passwordSignIn">
+              <input type="text" class="form-control" [(ngModel)]="passwordSign">
+            </div>
+            <div *ngIf="wrongPasswordOrEmail" class="alert alert-danger mt-25" role="alert">
+              Wrong password or email!
+            </div>
+            <div *ngIf="InputIsEmpty" class="alert alert-danger mt-25" role="alert">
+              Some input is empty!
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" #signInClose>Close</button>
             <button type="button" class="btn btn-success" (click)="signIn()">Submit</button>
           </div>
         </div>
@@ -62,23 +84,61 @@
           <div class="modal-body">
             <div>
               <h6>Username:</h6>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" [(ngModel)]="usernameSign">
             </div>
             <div class="mt-25">
               <h6>Email:</h6>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" [(ngModel)]="emailSign">
             </div>
             <div class="mt-25">
               <h6>Password:</h6>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" [(ngModel)]="passwordSign">
+            </div>
+            <div *ngIf="repeatEmail" class="alert alert-danger mt-25" role="alert">
+              This email already exists!
+            </div>
+            <div *ngIf="repeatUsername" class="alert alert-danger mt-25" role="alert">
+              This username already exists!
+            </div>
+            <div *ngIf="InputIsEmpty" class="alert alert-danger mt-25" role="alert">
+              Some input is empty!
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" #signUpClose>Close</button>
             <button type="button" class="btn btn-primary" (click)="signUp()">Submit</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="modal-add-post">
+    <div class="modal fade" id="modal-add-post" tabindex="-1" role="dialog" aria-labelledby="modal-add-postTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="add-postTitle">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <h6>Title:</h6>
+              <input type="text" class="form-control" [(ngModel)]="emailSign">
+            </div>
+            <div class="mt-25">
+              <h6>Text:</h6>
+              <textarea class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" #signInClose>Close</button>
+            <button type="button" class="btn btn-success" (click)="signIn()">Add post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </nav>

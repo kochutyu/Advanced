@@ -8,9 +8,12 @@ import {IPost} from '../app.component';
 })
 export class PostComponent implements OnInit {
   @Input() post: IPost;
+  editDelet: boolean;
   constructor() { }
 
   ngOnInit() {
   }
-
+  sdf() {
+    this.editDelet = true;
+  }
 }
