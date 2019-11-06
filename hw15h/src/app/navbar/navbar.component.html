@@ -1,45 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Angular Blog</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Angular Blog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
 
-      </ul>
-      <form class="form-inline my-2 my-lg-0" *ngIf="!CheckSignIn">
-      <button type="button"
-              class="btn btn-success"
-              [ngStyle]="{ 'margin-right': '10px'}"
-              data-toggle="modal"
-              data-target="#modal-sign-in"
-      >Sign In</button>
-      <button type="button"
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#modal-sign-up">Sign Up</button>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" *ngIf="!CheckSignIn">
+      <button type="button" class="btn btn-success" [ngStyle]="{ 'margin-right': '10px'}" data-toggle="modal"
+        data-target="#modal-sign-in">Sign In</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-sign-up">Sign Up</button>
     </form>
-      <form class="form-inline my-2 my-lg-0" *ngIf="CheckSignIn">
-        <button type="button"
-                class="btn btn-outline-success"
-                [ngStyle]="{ 'margin-right': '10px'}"
-                data-toggle="modal"
-                data-target="#modal-add-post"
-                #addPostOpen
-        >Add post</button>
-        <div class="userName" [ngStyle]="{ 'margin-right': '10px'}">
-          <span><span class="userNameSpan">Username: </span>{{thisUser.username}}</span>
-        </div>
-        <button type="button"
-                class="btn btn-outline-danger"
-                data-toggle="modal"
-                (click)="signOut()"
-        >Sign Out</button>
-      </form>
-    </div>
+    <form class="form-inline my-2 my-lg-0" *ngIf="CheckSignIn">
+      <button type="button" class="btn btn-outline-success" [ngStyle]="{ 'margin-right': '10px'}" data-toggle="modal"
+        data-target="#modal-add-post" #addPostOpen>Add post</button>
+      <div class="userName" [ngStyle]="{ 'margin-right': '10px'}">
+        <span><span class="userNameSpan">Username: </span>{{thisUser.username}}</span>
+      </div>
+      <button type="button" class="btn btn-outline-danger" data-toggle="modal" (click)="signOut()">Sign Out</button>
+    </form>
+  </div>
   <div class="modal-sign-in">
-    <div class="modal fade" id="modal-sign-in" tabindex="-1" role="dialog" aria-labelledby="modal-sign-inTitle" aria-hidden="true">
+    <div class="modal fade" id="modal-sign-in" tabindex="-1" role="dialog" aria-labelledby="modal-sign-inTitle"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -55,7 +40,7 @@
             </div>
             <div class="mt-25">
               <h6>Password:</h6>
-              <input type="text" class="form-control" [(ngModel)]="passwordSign">
+              <input type="password" class="form-control" [(ngModel)]="passwordSign">
             </div>
             <div *ngIf="wrongPasswordOrEmail" class="alert alert-danger mt-25" role="alert">
               Wrong password or email!
@@ -73,7 +58,8 @@
     </div>
   </div>
   <div class="modal-sign-up">
-    <div class="modal fade" id="modal-sign-up" tabindex="-1" role="dialog" aria-labelledby="modal-sign-upTitle" aria-hidden="true">
+    <div class="modal fade" id="modal-sign-up" tabindex="-1" role="dialog" aria-labelledby="modal-sign-upTitle"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -114,7 +100,8 @@
     </div>
   </div>
   <div class="modal-add-post">
-    <div class="modal fade" id="modal-add-post" tabindex="-1" role="dialog" aria-labelledby="modal-add-postTitle" aria-hidden="true">
+    <div class="modal fade" id="modal-add-post" tabindex="-1" role="dialog" aria-labelledby="modal-add-postTitle"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -152,8 +139,9 @@
       <p>{{i.content}}</p>
     </div>
     <div class="btn-for-sign-in" *ngIf="CheckSignIn">
-      <button (click)="edit(i)" [ngStyle]="{ 'margin-right': '10px'}" type="button" class="btn btn-warning mt-25" [disabled]="checkUserDeletePost">Edit</button>
-      <button (click)="deletePost(i)" type="button" class="btn btn-danger mt-25" [disabled]="checkUserDeletePost">Delete</button>
+      <button (click)="edit(i)" [ngStyle]="{ 'margin-right': '10px'}" type="button" class="btn btn-warning mt-25"
+        [disabled]="i.post">Edit</button>
+      <button (click)="deletePost(i)" type="button" class="btn btn-danger mt-25" [disabled]="i.post">Delete</button>
     </div>
   </div>
 </main>

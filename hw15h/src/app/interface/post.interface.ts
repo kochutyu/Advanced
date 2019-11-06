@@ -3,4 +3,5 @@ export interface IPost {
   title: string;
   posted: string;
   content: string;
+  post?: boolean;
 }
