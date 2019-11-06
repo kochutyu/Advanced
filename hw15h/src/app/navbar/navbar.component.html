@@ -26,6 +26,7 @@
                 [ngStyle]="{ 'margin-right': '10px'}"
                 data-toggle="modal"
                 data-target="#modal-add-post"
+                #addPostOpen
         >Add post</button>
         <div class="userName" [ngStyle]="{ 'margin-right': '10px'}">
           <span><span class="userNameSpan">Username: </span>{{thisUser.username}}</span>
@@ -125,16 +126,17 @@
           <div class="modal-body">
             <div>
               <h6>Title:</h6>
-              <input type="text" class="form-control" [(ngModel)]="emailSign">
+              <input type="text" class="form-control" [(ngModel)]="title">
             </div>
             <div class="mt-25">
               <h6>Text:</h6>
-              <textarea class="form-control"></textarea>
+              <textarea class="form-control" [(ngModel)]="textarea"></textarea>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" #signInClose>Close</button>
-            <button type="button" class="btn btn-success" (click)="signIn()">Add post</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" #saveClose>Close</button>
+            <button *ngIf="checkEdit" type="button" class="btn btn-success" (click)="save()">Save</button>
+            <button *ngIf="!checkEdit" type="button" class="btn btn-success" (click)="addPost()">Add post</button>
           </div>
         </div>
       </div>
@@ -142,3 +144,16 @@
   </div>
 
 </nav>
+<main>
+  <div class="post" *ngFor="let i of posts">
+    <h1>{{i.title}}</h1>
+    <span class="posted">Posted by: <span class="postedBy">{{i.posted}}</span></span>
+    <div class="bg-content">
+      <p>{{i.content}}</p>
+    </div>
+    <div class="btn-for-sign-in" *ngIf="CheckSignIn">
+      <button (click)="edit(i)" [ngStyle]="{ 'margin-right': '10px'}" type="button" class="btn btn-warning mt-25" [disabled]="checkUserDeletePost">Edit</button>
+      <button (click)="deletePost(i)" type="button" class="btn btn-danger mt-25" [disabled]="checkUserDeletePost">Delete</button>
+    </div>
+  </div>
+</main>
