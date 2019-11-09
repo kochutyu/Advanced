@@ -3,8 +3,8 @@
   display: 'flex',
   justifyContent: 'space-between'
 }">
-  <input type="text" c
-         lass="form-control"
+  <input type="text"
+         class="form-control"
          [ngStyle]="{
           width:'80%',
           marginRight:'1%'
@@ -14,6 +14,7 @@
           [ngStyle]="{width:'19%'}"
           data-toggle="modal"
           data-target="#add"
+          #modalCHECK
   >add phone</button>
 </div>
 <table class="table table-sm" [ngStyle]="{marginTop:'18px'}">
@@ -43,27 +44,28 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
+        <h5 class="modal-title" id="addTitle">Add phone</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="mt20">
-          <h6>First name:</h6>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" placeholder="First name:" [(ngModel)]="firstNameInput">
         </div>
         <div class="mt20">
-          <h6>Last name:</h6>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" placeholder="Last name:" [(ngModel)]="lastNameInput">
         </div>
         <div class="mt20">
-          <h6>Phone number:</h6>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" placeholder="Phone number:" [(ngModel)]="numberInput">
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">add number</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" #modalClose>Close</button>
+        <button type="button" class="btn btn-success" *ngIf="!editCheck; else idEdit" (click)="addNumber()">add number</button>
+        <ng-template #idEdit>
+          <button type="button" class="btn btn-success"(click)="save()">Save</button>
+        </ng-template>
       </div>
     </div>
   </div>
