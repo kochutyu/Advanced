@@ -1,0 +1,70 @@
+<hr>
+<div [ngStyle]="{
+  display: 'flex',
+  justifyContent: 'space-between'
+}">
+  <input type="text" c
+         lass="form-control"
+         [ngStyle]="{
+          width:'80%',
+          marginRight:'1%'
+          }"
+  >
+  <button class="btn btn-primary"
+          [ngStyle]="{width:'19%'}"
+          data-toggle="modal"
+          data-target="#add"
+  >add phone</button>
+</div>
+<table class="table table-sm" [ngStyle]="{marginTop:'18px'}">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">First name</th>
+    <th scope="col">Last name</th>
+    <th scope="col">Number</th>
+    <th scope="col">Edit</th>
+    <th scope="col">DELETE</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users; let i=index">
+    <th scope="row">{{i+1}}</th>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.phone}}</td>
+    <td><button class="btn btn-warning" (click)="edit(user)">Edit</button></td>
+    <td><button class="btn btn-danger" (click)="delete(user)">DELETE</button></td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="addTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mt20">
+          <h6>First name:</h6>
+          <input type="text" class="form-control">
+        </div>
+        <div class="mt20">
+          <h6>Last name:</h6>
+          <input type="text" class="form-control">
+        </div>
+        <div class="mt20">
+          <h6>Phone number:</h6>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">add number</button>
+      </div>
+    </div>
+  </div>
+</div>
