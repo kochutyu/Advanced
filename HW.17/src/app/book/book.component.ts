@@ -17,12 +17,13 @@ export class BookComponent implements OnInit, IPhone {
   lastNameInput: string;
   numberInput: string;
   editCheck: boolean = false;
+  firstNameSort: boolean = false;
   thisUSER: IPhone;
   users: IPhone[] = [
     {id: 1, firstName: 'Yura', lastName: 'Kochut', phone: '0975030847'},
     {id: 2, firstName: 'Adolf', lastName: 'Hitler', phone: '0945632986'},
     {id: 3, firstName: 'Joseph', lastName: 'Stalin', phone: '0635623496'}
-  ]
+  ];
   @ViewChild('modalClose', {static: false}) modalClose;
   @ViewChild('modalCHECK', {static: false}) modalCHECK;
   constructor() { }
@@ -54,6 +55,38 @@ export class BookComponent implements OnInit, IPhone {
     this.thisUSER.lastName = this.lastNameInput;
     this.thisUSER.phone = this.numberInput;
     this.editCheck = false;
+    this.firstNameInput = this.lastNameInput = this.numberInput = '';
     this.modalClose.nativeElement.click();
+  }
+  alert() {
+    alert();
+  }
+  filter() {
+      const letfdsa: IPhone[] = this.users.concat();
+      const checkUser: object[] = [];
+      const sort: object[] = [];
+      const id: string[] = [];
+
+      const firstName: string[] = [];
+
+      for (const obj in this.users) {
+        const str = `${this.users[obj].id} ${this.users[obj].firstName} ${this.users[obj].lastName} ${this.users[obj].phone}`;
+        id.push(str);
+        checkUser.push(str.split(' '));
+        firstName.push(this.users[obj].firstName);
+      }
+
+
+      console.log('checkUser', checkUser);
+      console.log('id', id);
+
+      firstName.sort();
+
+      console.log('firstName', firstName);
+      // console.log('lastName', lastName);
+      // console.log('id', id);
+      // console.log('users', this.users);
+
+      console.log(this.users);
   }
 }
