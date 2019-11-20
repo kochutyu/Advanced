@@ -1,0 +1,17 @@
+.block-details{
+    height: 78vh;
+    background-color: #343a40;
+    border: 1px solid #fff;
+    box-shadow: 0 0 20px 5px #343a40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.block-details-img{
+    margin-right: 50px;
+}
+.select-text{
+    font-weight: bold;
+    color: #bb6b6b;
+}

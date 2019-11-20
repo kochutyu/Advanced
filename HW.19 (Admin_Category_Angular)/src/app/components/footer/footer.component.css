@@ -1,0 +1,12 @@
+.block{
+    display: flex;
+    align-items: center;
+    background-color: #343a40;
+    color: #fff;
+    height: 35px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-left: 15px;
+}

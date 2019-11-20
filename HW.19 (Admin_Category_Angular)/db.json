@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": 7,
+      "title": "gsdfg",
+      "text": "gsdfsddfg",
+      "author": "sdf",
+      "date": "2019-11-20T12:06:56.246Z",
+      "tiauthortle": "1"
+    },
+    {
+      "id": 14,
+      "title": "zxcv",
+      "text": "zxvsdfg",
+      "author": "zxcvasdfasdf",
+      "date": "2019-11-20T21:17:02.350Z",
+      "tiauthortle": "zxcv"
+    },
+    {
+      "id": 15,
+      "title": "title",
+      "text": "text1",
+      "author": "authorasdf123",
+      "date": "2019-11-20T21:18:58.678Z",
+      "tiauthortle": "title"
+    },
+    {
+      "id": 16,
+      "title": "zxcv",
+      "text": "zxv",
+      "author": "asdf",
+      "date": "2019-11-20T21:22:25.732Z"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "category": "category",
+      "name": "namesadf",
+      "description": "description",
+      "price": 123,
+      "date": "2019-11-20T19:41:14.019Z"
+    },
+    {
+      "id": 2,
+      "category": "цук",
+      "name": "йцук",
+      "description": "йцук",
+      "price": 123123,
+      "date": "2019-11-20T19:20:43.384Z"
+    }
+  ]
+}
