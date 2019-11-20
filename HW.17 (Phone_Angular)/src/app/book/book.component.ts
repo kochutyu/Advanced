@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {IPhone} from '../phone.interface';
 import {Phone} from '../phone.model';
+import {Sort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-book',
@@ -26,10 +27,12 @@ export class BookComponent implements OnInit, IPhone {
   ];
   @ViewChild('modalClose', {static: false}) modalClose;
   @ViewChild('modalCHECK', {static: false}) modalCHECK;
-  constructor() { }
+  constructor() {  }
 
   ngOnInit() {
   }
+
+
   edit(user: IPhone) {
     this.thisUSER = user;
     this.editCheck = true;
@@ -89,4 +92,7 @@ export class BookComponent implements OnInit, IPhone {
 
       console.log(this.users);
   }
+}
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

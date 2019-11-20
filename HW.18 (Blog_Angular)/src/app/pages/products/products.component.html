@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <input type="text" [(ngModel)]="searchName" name="searchName" class="form-control mb-mt-25" placeholder="search...">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Category</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of products | search:searchName; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{prod.category | uppercase}}</td>
+        <td>{{prod.name | lowercase}}</td>
+        <td>{{prod.description | titlecase | slice:0:20}} ...</td>
+        <td>{{prod.price | products:'₴'}}</td>
+        <td>{{prod.date | date}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

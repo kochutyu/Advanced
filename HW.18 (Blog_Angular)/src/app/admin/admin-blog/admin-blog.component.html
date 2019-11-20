@@ -1,0 +1,33 @@
+<input type="text" class="form-control mb-25" placeholder="title..." [(ngModel)]="title">
+<textarea name="" id="" cols="30" rows="3" class="form-control mb-25" placeholder="text..." [(ngModel)]="text"></textarea>
+<input type="text" class="form-control mb-25" placeholder="author..." [(ngModel)]="author">
+<button class="btn btn-secondary mb-25" (click)="addPost()">Post</button>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Text</th>
+        <th scope="col">Author</th>
+        <th scope="col">Date</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of BlogService.posts; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{post.title}}</td>
+        <td>{{post.text}}</td>
+        <td>{{post.author}}</td>
+        <td>{{post.date | date}}</td>
+        <td>
+          <button type="button" class="btn btn-warning" (click)="editPost(post)">Edit</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="deletePost(post)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

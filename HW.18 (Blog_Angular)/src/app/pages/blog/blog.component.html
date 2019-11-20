@@ -1,0 +1,9 @@
+<div class="container-fluid mt-2 justify-post">
+  <div class="POST" *ngFor="let post of BlogService.posts">
+    <img src="assets/pizza.jpg" alt="">
+      <span class="date">{{post.date | date}}</span>
+      <h2>{{post.title}}</h2>
+      <span class="text">{{post.text}}</span>
+      <p class="author">{{post.author}}</p>
+  </div>
+</div>

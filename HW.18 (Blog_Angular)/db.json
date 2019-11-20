@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "title": "fsadf",
+      "text": "asd",
+      "author": "asdf",
+      "date": "2019-11-20T11:42:53.396Z"
+    },
+    {
+      "id": 5,
+      "title": "asd",
+      "text": "fasdfa",
+      "author": "sdf",
+      "date": "2019-11-20T11:42:53.396Z"
+    },
+    {
+      "id": 6,
+      "title": "asd",
+      "text": "fasd",
+      "author": "fasdf",
+      "date": "2019-11-20T11:42:53.396Z"
+    },
+    {
+      "id": 7,
+      "title": "asdf",
+      "text": "asdf",
+      "author": "asddf",
+      "date": "2019-11-20T12:06:56.246Z"
+    }
+  ],
+  "products": [
+    {
+      "id": 5,
+      "category": "asdf",
+      "name": "sadf",
+      "description": "asd",
+      "price": 123,
+      "date": "2019-11-20T11:15:37.055Z"
+    }
+  ]
+}

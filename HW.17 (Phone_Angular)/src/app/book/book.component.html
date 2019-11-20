@@ -19,18 +19,19 @@
           (click)="reset()"
   >add phone</button>
 </div>
-<table class="table table-sm" [ngStyle]="{marginTop:'18px'}">
+<table matSort (matSortChange)="sortData($event)" class="table table-sm" [ngStyle]="{marginTop:'18px'}">
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col" (click)="filter()">First name</th>
-    <th scope="col">Last name</th>
-    <th scope="col">Number</th>
+    <th mat-sort-header="firstName" scope="col" (click)="filter()">First name</th>
+    <th mat-sort-header="lastName" scope="col">Last name</th>
+    <th mat-sort-header="phone" scope="col">Number</th>
     <th scope="col">Edit</th>
     <th scope="col">DELETE</th>
   </tr>
   </thead>
   <tbody>
+    
   <tr *ngFor="let user of users | filter: search; let i=index">
     <th scope="row">{{i+1}}</th>
     <td>{{user.firstName}}</td>

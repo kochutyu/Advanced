@@ -1,0 +1,27 @@
+.justify-post{
+    display: flex;
+    flex-wrap: wrap;
+}
+.POST{
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    align-items: center;
+    box-shadow: 0 0 10px 1px #333;
+    padding: 5px 0;
+}
+img{
+    width: 50%;
+}
+.date{
+    text-transform: uppercase;
+    color: #0066ff;
+    font-weight: bold;
+}
+.text{
+    word-wrap: break-word;
+}
+.author{
+    margin-bottom: 1px;
+}

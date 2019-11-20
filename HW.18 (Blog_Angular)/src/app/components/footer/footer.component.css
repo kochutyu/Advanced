@@ -1,0 +1,9 @@
+.block{
+    background-color: #333;
+    color: #fff;
+    height: 35px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
