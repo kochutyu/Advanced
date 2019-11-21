@@ -10,15 +10,19 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 export class ProductsComponent implements OnInit {
   products: Array<IProduct> = [];
 
-  constructor(private productsService: ProductsService) {
+  constructor(private ProductsService: ProductsService) {
     this.getPageProducts();
    }
 
   ngOnInit() {
   }
 
-  getPageProducts(): void {
-    this.products = this.productsService.getProducts();
+  private getPageProducts(): void{
+    this.ProductsService.getJsonProducts().subscribe(
+      data => {
+        this.products = data
+      }
+    );
   }
 
 }

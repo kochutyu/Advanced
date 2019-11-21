@@ -1,4 +1,14 @@
 {
+  "category": [
+    {
+      "id": 1,
+      "name": "pizza"
+    },
+    {
+      "id": 2,
+      "name": "pasta"
+    }
+  ],
   "posts": [
     {
       "id": 7,
@@ -34,20 +44,28 @@
   ],
   "products": [
     {
-      "id": 1,
-      "category": "category",
-      "name": "namesadf",
-      "description": "description",
-      "price": 123,
-      "date": "2019-11-20T19:41:14.019Z"
+      "id": 3,
+      "category": "1",
+      "name": "asdf",
+      "description": "sadfa",
+      "price": 12,
+      "date": "2019-11-21T02:08:25.077Z"
     },
     {
-      "id": 2,
-      "category": "цук",
-      "name": "йцук",
-      "description": "йцук",
-      "price": 123123,
-      "date": "2019-11-20T19:20:43.384Z"
+      "id": 4,
+      "category": "dasf",
+      "name": "asdf",
+      "description": "asdf",
+      "price": 123,
+      "date": "2019-11-21T02:33:12.096Z"
+    },
+    {
+      "id": 5,
+      "category": "123",
+      "name": "123",
+      "description": "123",
+      "price": 1212,
+      "date": "2019-11-21T03:04:28.441Z"
     }
   ]
 }

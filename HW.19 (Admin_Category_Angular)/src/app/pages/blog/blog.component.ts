@@ -9,15 +9,20 @@ import { IPost } from 'src/app/shared/interfaces/blog.interface';
 })
 export class BlogComponent implements OnInit {
   posts: IPost[] = [];
+  
   constructor(private BlogService: BlogService) { 
-    this.getPagePosts();
+    this.getPOST();
    }
 
   ngOnInit() {
   }
 
-  getPagePosts(): void{
-    this.posts = this.BlogService.getPosts();
+  private getPOST(): void{
+    this.BlogService.getPostJSON().subscribe(
+      data => {
+        this.posts = data
+      }
+    );
   }
 
 }

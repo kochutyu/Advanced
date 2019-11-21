@@ -1,1 +1,55 @@
-<p>admin-category works!</p>
+<div class="container-fluid">
+  <div class="admin-category-all">
+    <div class="category">
+      <span class="styleStyleCategorySpan">Categorys</span>
+      <button class="btn btn-dark" data-toggle="modal" data-target="#addCategory" data-backdrop="static" data-keyboard="false"#openModal>Add</button>
+      </div>
+    <div class="categorry-info">
+      <input type="text" class="form-control mb-25" placeholder="filter category..." [(ngModel)]="searchName">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of adminCategorys | search:searchName; let i=index"> 
+            <th scope="row">{{i+1}}</th>
+            <td>{{category.name}}</td>
+            <td>
+              <button type="button" class="btn btn-warning" (click)="editCategory(category)">Edit</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="deleteCategoy(category)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="addCategoryTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addCategoryTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control mb-25" placeholder="name..." [(ngModel)]="name">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" #close>Close</button>
+        <button type="button" class="btn btn-primary" (click)="addCategory()" *ngIf="!editStatus">Add</button>
+        <button type="button" class="btn btn-success" (click)="saveCategory()" *ngIf="editStatus">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
