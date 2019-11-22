@@ -1,0 +1,43 @@
+<!-- <form>
+    <div class="form-group">
+        <label for="userFirstName">userFirstName</label>
+        <input [(ngModel)]="regForm.userFirstName" name="userFirstName" #userFirstName="ngModel" type="text" required class="form-control" id="userFirstName">
+        <div [hidden]="userFirstName.valid || userFirstName.untouched" class="alert alert-danger">
+            поле не заповнене
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="userSecondName">userSecondName</label>
+        <input [(ngModel)]="regForm.userSecondName" name="userSecondName" type="text" class="form-control" id="userSecondName">
+    </div>
+    <div class="form-group">
+        <label for="userEmail">userEmail</label>
+        <input pattern="[a-zA-Z_]+@[a-zA-Z]+?\.[a-zA-Z]{2-3}" required #userEmail="ngModel" [(ngModel)]="regForm.userEmail" name="userEmail" type="email" class="form-control" id="userEmail">
+        <div [hidden]="userEmail.valid || userEmail.untouched" class="alert alert-danger">
+            емейл неправильний
+        </div>
+    </div>
+    <button [disabled]="userFirstName.invalid" type="button" class="btn btn-success" (click)="setData()">Add</button>
+</form> -->
+
+<form>
+    <div class="form-group">
+        <label for="userFirstName" [formGroup]="registerForm">userFirstName</label>
+        <input formControlName="userFirstName" name="userFirstName" type="text" class="form-control" id="userFirstName">
+        <!-- <div [hidden]="userFirstName.valid || userFirstName.untouched" class="alert alert-danger">
+            поле не заповнене
+        </div> -->
+    </div>
+    <div class="form-group">
+        <label for="userSecondName">userSecondName</label>
+        <input formControlName="userFirstName" name="userSecondName" type="text" class="form-control" id="userSecondName">
+    </div>
+    <div class="form-group">
+        <label for="userEmail">userEmail</label>
+        <input pattern="[a-zA-Z_]+@[a-zA-Z]+?\.[a-zA-Z]{2-3}"  formControlName="userFirstName" name="userEmail" type="email" class="form-control" id="userEmail">
+        <!-- <div [hidden]="userEmail.valid || userEmail.untouched" class="alert alert-danger">
+            емейл неправильний
+        </div> -->
+    </div>
+    <button [disabled]="userFirstName.invalid" type="button" class="btn btn-success" (click)="setData()">Add</button>
+</form>

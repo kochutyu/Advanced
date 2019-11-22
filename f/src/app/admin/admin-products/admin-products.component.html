@@ -1,0 +1,79 @@
+<form>
+  <div class="form-group">
+    <label for="productCategory">Category</label>
+    <input [(ngModel)]="productCategory" name="productCategory" type="text" class="form-control" id="productCategory">
+  </div>
+  <div class="form-group">
+    <label for="productName">Name</label>
+    <input [(ngModel)]="productName" name="productName" type="text" class="form-control" id="productName">
+  </div>
+  <div class="form-group">
+    <label for="productDescription">Description</label>
+    <input [(ngModel)]="productDescription" name="productDescription" type="text" class="form-control" id="productDescription">
+  </div>
+  <div class="form-group">
+    <label for="productPrice">Price</label>
+    <input [(ngModel)]="productPrice" name="productPrice" type="number" class="form-control" id="productPrice">
+  </div>
+  <div class="form-group row">
+    <div class="card-body">
+      <h5 class="card-title">Select a file for upload:</h5>
+      <!-- <input type="file" (change)="upload($event)" accept=".png,.jpg" /> -->
+      <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+      <br><br>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+          [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+          aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <br>
+      <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+        File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+      </div>
+      <br>
+      <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+        <button type="button" class="btn btn-primary" (click)="task.pause()"
+          [disabled]="state === 'paused'">Pause</button>
+        <button type="button" class="btn btn-primary" (click)="task.cancel()"
+          [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="task.resume()"
+          [disabled]="state === 'running'">Resume</button>
+      </div>
+    </div>
+   </div>
+  <button type="button" class="btn btn-success" (click)="addProduct()">Add</button>
+</form>
+<br>
+
+
+<!-- <input type="text" [(ngModel)]="searchName" name="searchName">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Category</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Date</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prod of adminProducts | search:searchName; let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{prod.category}}</td>
+      <td>{{prod.name}}</td>
+      <td>{{prod.description}}</td>
+      <td>{{prod.price}}</td>
+      <td>{{prod.date}}</td>
+      <td>
+        <button type="button" class="btn btn-warning" (click)="editProduct(prod)">Edit</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteProduct(prod)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table> -->

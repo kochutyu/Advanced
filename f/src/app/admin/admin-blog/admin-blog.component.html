@@ -1,0 +1,33 @@
+<input type="text" class="form-control mb25" placeholder="title..." [(ngModel)]="title">
+<textarea name="" id="" cols="30" rows="3" class="form-control mb25" placeholder="text..." [(ngModel)]="text"></textarea>
+<input type="text" class="form-control mb25" placeholder="author..." [(ngModel)]="author">
+<button *ngIf="!checkEdit" type="button" class="btn btn-dark mb25" (click)="addPost()">Add post</button>
+<button *ngIf="checkEdit" type="button" class="btn btn-success mb25" (click)="savePost()">Save</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Text</th>
+        <th scope="col">Date</th>
+        <th scope="col">Author</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of posts; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{post.title}}</td>
+        <td>{{post.text}}</td>
+        <td>{{post.date | date:"dd.mm.yyyy"}}</td>
+        <td>{{post.author}}</td>
+        <td>
+          <button type="button" class="btn btn-warning" (click)="editPost(post)">Edit</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="deletePost(post)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

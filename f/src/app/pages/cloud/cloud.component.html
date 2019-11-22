@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">firstName</th>
+      <th scope="col">lastName</th>
+      <th scope="col">email</th>
+      <th scope="col">register</th>
+      <th scope="col">Id</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{user.firstname}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.dateOfRegister}}</td>
+      <td>{{user.id}}</td>
+      <td>
+        <button type="button" class="btn btn-warning" (click)="editData(user)">Edit</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteData(user)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

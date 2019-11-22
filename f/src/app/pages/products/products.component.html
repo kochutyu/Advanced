@@ -1,0 +1,67 @@
+<!-- <p>products works!</p>
+<input type="text" [(ngModel)]="searchName" name="searchName">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Category</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of products | search:searchName; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{prod.category | uppercase}}</td>
+        <td>{{prod.name | lowercase}}</td> -->
+        <!-- <td>{{prod.description | titlecase}}</td> -->
+        <!-- {{ variable | slice:start:end }} -->
+        <!-- <td>{{prod.description | titlecase | slice:0:20}} ...</td> -->
+        <!-- <td>{{prod.price | currency}}</td> -->
+        <!-- <td>{{prod.price | currency:'EUR'}}</td> -->
+        <!-- <td>{{prod.price | currency:'EUR':'code'}}</td> -->
+        <!-- <td>{{prod.price | currency:'UAH':'symbol-narrow'}}</td> -->
+        <!-- <td>{{prod.price | products:'₴'}}</td> -->
+        <!-- <td>{{prod.price | currency:'UAH':'symbol-narrow':'1.0-0'}}</td> -->
+        <!-- <td>{{prod.price | currency:'UAH':'symbol-narrow':'1.5-10'}}</td> -->
+        <!-- <td>{{prod.price | number:'1.5-10'}}</td> -->
+        <!-- <td>{{prod.price | percent:'1.1-3'}}</td> -->
+        <!-- <td>{{prod.date | date}}</td> -->
+        <!-- <td>{{prod.date | date:'short'}}</td> -->
+        <!-- <td>{{prod.date | date:'medium'}}</td> -->
+        <!-- <td>{{prod.date | date:'long'}}</td> -->
+        <!-- <td>{{prod.date | date:'full'}}</td> -->
+        <!-- <td>{{prod.date | date:'shortDate'}}</td> -->
+        <!-- <td>{{prod.date | date:'mediumDate'}}</td> -->
+        <!-- <td>{{prod.date | date:'longDate'}}</td> -->
+        <!-- <td>{{prod.date | date:'fullDate'}}</td> -->
+        <!-- <td>{{prod.date | date:'shortTime'}}</td>
+        <td>{{prod.date | date:'mediumTime'}}</td>
+        <td>{{prod.date | date:'longTime'}}</td>
+        <td>{{prod.date | date:'fullTime'}}</td> -->
+        <!-- <td>{{prod.date | date:'H:mm:ss'}}</td>
+      </tr>
+    </tbody>
+  </table> -->
+<!-- 
+    {{ expression | pipe }}
+    pipes text: lowerpipe, upperpipe, titlepipe, slicepipe
+    number: currency, decimal, percent
+            currency:'code':'symbol':'minInt.minFrac-maxFrac'
+ -->
+
+ <div class="container">
+  <div class="row">
+    <div class="card" style="width: 18rem;" *ngFor="let prod of products">
+      <img src="" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{prod.name}}</h5>
+        <p class="card-text">{{prod.description}}</p>
+        <p class="card-text text-danger">{{prod.price}}</p>
+        <a class="btn btn-primary" [routerLink]="['/products', prod.id]">More details</a>
+      </div>
+    </div>
+  </div>
+</div>
