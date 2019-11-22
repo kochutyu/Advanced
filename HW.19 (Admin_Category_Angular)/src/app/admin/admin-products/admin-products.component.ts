@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { Product } from 'src/app/shared/classes/product.model';
@@ -16,6 +16,9 @@ export class AdminProductsComponent implements OnInit {
   productPrice: number;
   productId: number;
   editStatus: boolean;
+
+  @ViewChild('close', {static: false}) close: ElementRef;
+  @ViewChild('openModal', {static: false}) openModal: ElementRef;
 
   constructor(private productsService: ProductsService) {
     // this.getAdminProducts();
@@ -62,6 +65,8 @@ export class AdminProductsComponent implements OnInit {
           this.getProducts();
         });
       }
+
+      this.close.nativeElement.click();
       this.clearForm();  
     }
   }
@@ -79,6 +84,7 @@ export class AdminProductsComponent implements OnInit {
     this.productPrice = product.price;
     this.productId = product.id;
     this.editStatus = true;
+    this.openModal.nativeElement.click();
   }
 
   private clearForm(): void {
@@ -86,6 +92,11 @@ export class AdminProductsComponent implements OnInit {
     this.productName = '';
     this.productDescription = '';
     this.productPrice = null;
+  }
+
+  private closeModal() {
+    this.editStatus = false;
+    this.clearForm();
   }
 
 }

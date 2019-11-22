@@ -2,9 +2,10 @@
   <div class="admin-category-all">
     <div class="category">
       <span class="styleStyleCategorySpan">Categorys</span>
-      <button class="btn btn-dark" data-toggle="modal" data-target="#addCategory" data-backdrop="static" data-keyboard="false"#openModal>Add</button>
-      </div>
-    <div class="categorry-info">
+      <button class="btn btn-dark" data-toggle="modal" data-target="#addCategory" data-backdrop="static"
+        data-keyboard="false" #openModal>Add</button>
+    </div>
+      <br>
       <input type="text" class="form-control mb-25" placeholder="filter category..." [(ngModel)]="searchName">
       <table class="table">
         <thead>
@@ -16,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let category of adminCategorys | search:searchName; let i=index"> 
+          <tr *ngFor="let category of adminCategorys | search:searchName; let i=index">
             <th scope="row">{{i+1}}</th>
             <td>{{category.name}}</td>
             <td>
@@ -28,7 +29,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
   </div>
 </div>
 <!-- Modal -->
@@ -38,7 +38,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addCategoryTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -46,7 +46,7 @@
         <input type="text" class="form-control mb-25" placeholder="name..." [(ngModel)]="name">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" #close>Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()" #close>Close</button>
         <button type="button" class="btn btn-primary" (click)="addCategory()" *ngIf="!editStatus">Add</button>
         <button type="button" class="btn btn-success" (click)="saveCategory()" *ngIf="editStatus">Save</button>
       </div>

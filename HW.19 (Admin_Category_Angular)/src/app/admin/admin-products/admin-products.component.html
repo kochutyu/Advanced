@@ -1,48 +1,79 @@
-<form>
-  <div class="form-group">
-    <input [(ngModel)]="productCategory" name="productCategory" type="text" class="form-control" id="productCategory" placeholder="category...">
+<div class="container-fluid">
+  <div class="admin-category-all">
+    <div class="category">
+      <span class="styleStyleCategorySpan">Products</span>
+      <button class="btn btn-dark" data-toggle="modal" data-target="#addProduct" data-backdrop="static"
+        data-keyboard="false" #openModal>Add</button>
+    </div>
+    <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Category</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Date</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prod of productsService.products; let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{prod.category}}</td>
+          <td>{{prod.name}}</td>
+          <td>{{prod.description}}</td>
+          <td>{{prod.price}}</td>
+          <td>{{prod.date | date}}</td>
+          <td>
+            <button type="button" class="btn btn-warning" (click)="editProduct(prod)">Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="deleteProduct(prod)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="form-group">
-    <input [(ngModel)]="productName" name="productName" type="text" class="form-control" id="productName" placeholder="name...">
+</div>
+<!-- Modal -->
+<div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="addProductTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProductTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <input [(ngModel)]="productCategory" name="productCategory" type="text" class="form-control"
+              id="productCategory" placeholder="category...">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="productName" name="productName" type="text" class="form-control" id="productName"
+              placeholder="name...">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="productDescription" name="productDescription" type="text" class="form-control"
+              id="productDescription" placeholder="description...">
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="productPrice" name="productPrice" type="number" class="form-control" id="productPrice"
+              placeholder="price...">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()" #close>Close</button>
+        <button type="button" class="btn btn-primary" (click)="addProduct()" *ngIf="!editStatus">Add</button>
+        <button type="button" class="btn btn-success" (click)="addProduct()" *ngIf="editStatus">Save</button>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <input [(ngModel)]="productDescription" name="productDescription" type="text" class="form-control" id="productDescription" placeholder="description...">
-  </div>
-  <div class="form-group">
-    <input [(ngModel)]="productPrice" name="productPrice" type="number" class="form-control" id="productPrice" placeholder="price...">
-  </div>
-  <button type="button" class="btn btn-success" (click)="addProduct()">Add</button>
-</form>
-<br>
-
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Category</th>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Price</th>
-      <th scope="col">Date</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let prod of productsService.products; let i=index">
-      <th scope="row">{{i+1}}</th>
-      <td>{{prod.category}}</td>
-      <td>{{prod.name}}</td>
-      <td>{{prod.description}}</td>
-      <td>{{prod.price}}</td>
-      <td>{{prod.date | date}}</td>
-      <td>
-        <button type="button" class="btn btn-warning" (click)="editProduct(prod)">Edit</button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-danger" (click)="deleteProduct(prod)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+</div>

@@ -80,4 +80,9 @@ export class AdminCategoryComponent implements OnInit, ICategory {
     this.close.nativeElement.click();
   }
 
+  private closeModal() {
+    this.editStatus = false;
+    this.clearForm();
+  }
+
 }

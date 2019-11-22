@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BlogService } from 'src/app/shared/services/blog.service';
 import { Post } from 'src/app/shared/classes/post.model';
 import { IPost } from 'src/app/shared/interfaces/blog.interface';
@@ -22,6 +22,9 @@ export class AdminBlogComponent implements OnInit, IPost {
   postsConponent: IPost[] = [];
 
   editStatus: boolean;
+
+  @ViewChild('close', {static: false}) close: ElementRef;
+  @ViewChild('openModal', {static: false}) openModal: ElementRef;
 
   constructor(private BlogService: BlogService) {
     this.getPost();
@@ -48,6 +51,7 @@ export class AdminBlogComponent implements OnInit, IPost {
       this.BlogService.setPostJSON(newUser).subscribe(() => {
         this.getPost();
       });
+      this.close.nativeElement.click();
       this.clearForm();
     }
   }
@@ -58,6 +62,7 @@ export class AdminBlogComponent implements OnInit, IPost {
     this.author = post.author;
     this.thisPost = post;
     this.editStatus = true;
+    this.openModal.nativeElement.click();
   }
 
   deletePost(post: IPost): void {
@@ -83,7 +88,13 @@ export class AdminBlogComponent implements OnInit, IPost {
         this.getPost();
       });
 
+      this.close.nativeElement.click();
       this.clearForm();
     }
+  }
+
+  private closeModal() {
+    this.editStatus = false;
+    this.clearForm();
   }
 }

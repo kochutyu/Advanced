@@ -1,0 +1,18 @@
+.admin-category-all{
+    padding: 25px;
+}
+.category{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px 1px #333;
+    outline: 1px solid #333;
+    padding: 20px;
+}
+.styleStyleCategorySpan{
+    font-size: 20px;
+    font-weight: bold;
+}
+.mb-25{
+    margin-bottom: 25px;
+}
