@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="block-details">
+    <div class="block-details-img">
+      <img src="assets/pizza.jpg" alt="">
+    </div>
+    <div>
+      <p><span class="select-text">TITLE: </span>{{Post?.title}}</p>
+      <p><span class="select-text">TEXT: </span>{{Post?.text}}</p>
+      <p><span class="select-text">DATE: </span>{{Post?.date | date}}</p>
+      <p><span class="select-text">AUTHOR: </span>{{Post?.author}}</p>
+      <button class="btn btn-danger" (click)="goToBack()">GO BACK</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+{
+  "category": [
+    {
+      "id": 2,
+      "name": "pasta"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Angular 8",
+      "text": "in progressing",
+      "author": "kochutyu",
+      "date": "2019-11-22T03:21:24.907Z"
+    },
+    {
+      "id": 2,
+      "title": "React",
+      "text": "no progressing",
+      "author": "kochutyu",
+      "date": "2019-11-22T03:21:24.907Z"
+    },
+    {
+      "id": 3,
+      "title": "Vue",
+      "text": "no progressing",
+      "author": "kochutyu",
+      "date": "2019-11-22T03:21:24.907Z"
+    },
+    {
+      "id": 4,
+      "title": "JQuery",
+      "text": "done",
+      "author": "kochutyu",
+      "date": "2019-11-22T03:28:16.356Z"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "category": "pizza",
+      "name": "Chilentano",
+      "description": "cheese, tomato",
+      "price": 105,
+      "date": "2019-11-22T03:29:37.482Z"
+    },
+    {
+      "id": 2,
+      "category": "pasta",
+      "name": "italiano",
+      "description": "tomato",
+      "price": 230,
+      "date": "2019-11-22T03:30:23.330Z"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<div class="container-fluid mt-2 justify-post">
+  <div class="POST" *ngFor="let post of posts">
+    <img src="assets/pizza.jpg" alt="">
+    <span class="date">{{post.date | date}}</span>
+    <h2>{{post.title}}</h2>
+    <span class="text">{{post.text}}</span>
+    <p class="author">{{post.author}}</p>
+    <button class="btn btn-primary" style="width:97%" [routerLink]="['/blog', post.id]" routerLinkActive="router-link-active" >More details</button>
+  </div>
+</div>
